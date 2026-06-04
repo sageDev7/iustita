@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iustita — Estudio Jurídico Integral | Legal + Inmobiliaria | Córdoba</title>
+  <meta name="description" content="Estudio jurídico integral en Córdoba. Divorcios, laboral, penal, sucesiones y más. También bienes raíces, alquileres y administración de propiedades.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Nunito', sans-serif;
+      font-size: 17px; line-height: 1.70;
+      background: var(--bg); color: var(--text);
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    :root {
+      --bg:      #18192d;
+      --surface: #1d1e35;
+      --dark:    #0e0f20;
+      --gold:    #9e7643;
+      --gold-lt: #b5894f;
+      --gold-dim:rgba(158,118,67,0.14);
+      --rule:    rgba(158,118,67,0.24);
+      --text:    #ffffff;
+      --text-2:  rgba(255,255,255,0.60);
+    }
+
+    .container { max-width: 1180px; margin: 0 auto; padding: 0 2rem; }
+    section { padding: 100px 0; }
+
+    h1,h2,h3 { font-family:'Montserrat',sans-serif; letter-spacing:-.02em; }
+    h1 { font-size:60px; font-weight:900; line-height:1.06; }
+    h2 { font-size:44px; font-weight:800; line-height:1.12; }
+    h3 { font-size:18px; font-weight:700; }
+    .eyebrow {
+      font-family:'Montserrat',sans-serif; font-weight:700;
+      font-size:10px; letter-spacing:.22em; text-transform:uppercase;
+      color:var(--gold); display:block; margin-bottom:.7rem;
+    }
+    .sec-head .eyebrow::after {
+      content:''; display:block; width:22px; height:1px;
+      background:var(--gold); margin:.45rem auto 0; opacity:.55;
+    }
+    .gold { color:var(--gold); }
+    .text-2 { color:var(--text-2); }
+    .sec-head { text-align:center; margin-bottom:3.5rem; }
+    .sec-head h2 { margin-bottom:.7rem; }
+    .sec-head p { color:var(--text-2); max-width:580px; margin:0 auto; font-size:16px; }
+
+    /* GRAIN */
+    .grain { position:relative; background:var(--bg); }
+    .grain::before {
+      content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.020'/%3E%3C/svg%3E");
+    }
+    .grain > * { position:relative; z-index:1; }
+    .dark-sec { background:var(--dark); }
+
+    /* ANIMATIONS */
+    .reveal       { opacity:0; transform:translateY(22px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal-left  { opacity:0; transform:translateX(-30px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal-right { opacity:0; transform:translateX(30px); transition:opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in, .reveal-left.in, .reveal-right.in { opacity:1; transform:none; }
+
+    /* BUTTONS */
+    .btn {
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-family:'Montserrat',sans-serif; font-weight:700;
+      font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+      padding:13px 28px; border-radius:2px; cursor:pointer;
+      border:none; transition:background .2s, transform .15s, box-shadow .2s;
+    }
+    .btn:hover { transform:translateY(-2px); }
+    .btn-gold { background:var(--gold); color:#fff; }
+    .btn-gold:hover { background:var(--gold-lt); box-shadow:0 6px 20px rgba(158,118,67,.30); }
+    .btn-outline { border:1.5px solid var(--gold); color:var(--gold); background:transparent; }
+    .btn-outline:hover { background:var(--gold-dim); }
+
+    /* ══════════ SPLASH ══════════ */
+    #splash {
+      position:fixed; inset:0; z-index:9999; background:var(--dark);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.8rem;
+      transition:opacity .65s ease;
+    }
+    #splash.fade { opacity:0; pointer-events:none; }
+    .splash-logo { height:110px; width:auto; animation:splashIn .7s cubic-bezier(.2,.7,.2,1) .3s both; }
+    .splash-bar { width:0; height:1px; background:var(--gold); animation:splashBar .5s ease .95s forwards; }
+    @keyframes splashIn { from{opacity:0;transform:scale(.92)} to{opacity:1;transform:scale(1)} }
+    @keyframes splashBar { to{width:72px} }
+
+    /* ══════════ NAVBAR ══════════ */
+    header {
+      position:fixed; top:0; left:0; right:0; height:104px; z-index:1000;
+      background:transparent; transition:background .45s, backdrop-filter .45s;
+    }
+    header.sc { background:rgba(14,15,32,.96); backdrop-filter:blur(12px); border-bottom:1px solid var(--rule); }
+    .h-inner {
+      display:grid; grid-template-columns:1fr auto 1fr;
+      align-items:center; height:104px;
+      padding:0 2.5rem; max-width:1400px; margin:0 auto;
+    }
+    .h-logo { justify-self:start; opacity:0; pointer-events:none; transition:opacity .4s; }
+    .h-logo img { height:56px; width:auto; }
+    header.sc .h-logo { opacity:1; pointer-events:auto; }
+    nav.desk { justify-self:center; display:flex; gap:2.2rem; }
+    nav.desk a {
+      font-family:'Montserrat',sans-serif; font-weight:700;
+      font-size:10px; letter-spacing:.16em; text-transform:uppercase;
+      color:var(--text-2); position:relative; padding-bottom:3px; transition:color .2s;
+    }
+    nav.desk a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1px; background:var(--gold); transition:width .25s; }
+    nav.desk a:hover { color:var(--text); }
+    nav.desk a:hover::after { width:100%; }
+    .h-cta { justify-self:end; }
+    .h-cta .btn { padding:9px 20px; font-size:10px; letter-spacing:.16em; }
+
+    /* HAMBURGER */
+    .hamburger { display:none; position:fixed; top:22px; right:22px; z-index:1001; background:none; border:none; cursor:pointer; padding:6px; }
+    .hamburger span { display:block; width:22px; height:1.5px; background:var(--text); margin:5px 0; transition:.3s; }
+
+    /* MOBILE PANEL */
+    #mnav {
+      position:fixed; top:0; right:-100%; width:80%; max-width:290px; height:100%;
+      background:var(--dark); z-index:1000; border-left:1px solid var(--rule);
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.9rem;
+      transition:right .35s cubic-bezier(.2,.7,.2,1);
+    }
+    #mnav.open { right:0; }
+    .mnav-logo { height:75px; width:auto; opacity:.88; }
+    .mnav-divider { width:36px; height:1px; background:var(--rule); margin:.5rem 0 .8rem; }
+    #mnav a { font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-2); padding:.55rem 0; transition:color .2s; }
+    #mnav a:hover { color:var(--gold); }
+    #mnav-overlay { position:fixed; inset:0; background:rgba(0,0,0,.6); z-index:999; opacity:0; pointer-events:none; transition:opacity .3s; }
+    #mnav-overlay.open { opacity:1; pointer-events:all; }
+
+    /* ══════════ HERO ══════════ */
+    .hero {
+      position:relative; background:var(--bg);
+      overflow:hidden; height:100vh; /* exactamente un viewport, sin más */
+    }
+    /* grain */
+    .hero::before {
+      content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.020'/%3E%3C/svg%3E");
+    }
+    /* subtle gold grid pattern */
+    .hero::after {
+      content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(158,118,67,.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(158,118,67,.022) 1px, transparent 1px);
+      background-size:80px 80px;
+    }
+    /* vertical divider full-height */
+    .hero-vline {
+      position:absolute; top:0; left:50%; bottom:0; width:1px;
+      background:var(--rule); z-index:1; pointer-events:none;
+    }
+    /* corner brackets */
+    .hero-corner {
+      position:absolute; width:44px; height:44px;
+      z-index:3; pointer-events:none; opacity:.38;
+    }
+    .hero-corner-tl { top:32px; left:32px; border-top:1.5px solid var(--gold); border-left:1.5px solid var(--gold); }
+    .hero-corner-br { bottom:32px; right:32px; border-bottom:1.5px solid var(--gold); border-right:1.5px solid var(--gold); }
+
+    .hero-inner {
+      display:grid; grid-template-columns:1fr 1fr;
+      height:100%; width:100%;
+      position:relative; z-index:2;
+    }
+    /* LEFT: big logo */
+    .hero-left {
+      position:relative; overflow:hidden;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      padding:120px 4rem 80px;
+    }
+    .hero-mark {
+      position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+      width:420px; height:auto; opacity:.07; z-index:0; pointer-events:none; user-select:none;
+    }
+    .hero-ring {
+      position:absolute; border-radius:50%;
+      border:1px solid rgba(158,118,67,.18);
+      left:50%; top:50%; transform:translate(-50%,-50%);
+      z-index:0; pointer-events:none;
+      animation:hRing 6s ease-in-out infinite;
+    }
+    .hero-ring-1 { width:500px; height:500px; }
+    .hero-ring-2 { width:640px; height:640px; animation-delay:3s; }
+    @keyframes hRing { 0%,100%{opacity:.18} 50%{opacity:.32} }
+    .hero-logo-main { height:200px; width:auto; position:relative; z-index:1; }
+    .hero-gold-accent { width:40px; height:1px; background:var(--gold); margin:1.6rem auto 0; opacity:.65; position:relative; z-index:1; }
+    .hero-tagline-sm {
+      font-family:'Montserrat',sans-serif; font-weight:700;
+      font-size:9px; letter-spacing:.22em; text-transform:uppercase;
+      color:rgba(158,118,67,.6); text-align:center; margin-top:.8rem;
+      position:relative; z-index:1;
+    }
+    /* Mobile: compactar espacio decorativo del logo */
+    @media(max-width:768px) {
+      .hero-gold-accent { margin-top:1rem; }
+      .hero-tagline-sm  { margin-top:.5rem; font-size:8px; letter-spacing:.18em; }
+    }
+    /* RIGHT: content */
+    .hero-right {
+      display:flex; flex-direction:column; justify-content:center;
+      padding:120px 4rem 80px 4rem;
+    }
+    .hero-right h1 { margin-bottom:1.4rem; }
+    .hero-right p { color:var(--text-2); font-size:18px; margin-bottom:2.4rem; max-width:500px; }
+    .hero-ctas { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; }
+    .hero-tel { display:flex; align-items:center; gap:.55rem; font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; color:var(--text-2); }
+    .hero-tel i { color:var(--gold); font-size:16px; }
+
+    /* ══════════ TICKER ══════════ */
+    .ticker-wrap { background:var(--dark); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.9rem 0; overflow:hidden; }
+    .ticker-track { display:flex; gap:2.8rem; white-space:nowrap; animation:ticker 50s linear infinite; }
+    .ticker-track span { font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+    .ticker-track .sep { color:rgba(158,118,67,.32); }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ══════════ DOS RAMAS ══════════ */
+    .ramas-head { text-align:center; margin-bottom:2rem; }
+    .ramas-head h2 { margin-bottom:.8rem; }
+    .ramas-head p { color:var(--gold); font-size:17px; font-family:'Nunito',sans-serif; }
+    .ramas-split { display:flex; align-items:center; justify-content:center; }
+    .ramas-divider { width:1px; height:300px; background:var(--rule); flex-shrink:0; }
+    .rama-col { flex:1; max-width:440px; padding:2rem 4rem; text-align:center; }
+    .rama-icon { font-size:42px; color:var(--gold); display:block; margin-bottom:1.3rem; }
+    .rama-col h3 { font-size:21px; margin-bottom:1.5rem; }
+    .rama-list { list-style:none; margin-bottom:2rem; }
+    .rama-list li { display:flex; align-items:center; justify-content:center; gap:.6rem; padding:.38rem 0; color:var(--text-2); font-size:15px; }
+    .rama-list li i { color:var(--gold); font-size:12px; flex-shrink:0; }
+    .badge-pill { display:inline-block; background:transparent; border:1px solid var(--rule); color:var(--gold); border-radius:2px; padding:5px 16px; font-size:11px; font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .ramas-cta { text-align:center; margin-top:3rem; }
+    .ramas-cta a { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); transition:color .2s; }
+    .ramas-cta a:hover { color:var(--gold-lt); }
+
+    /* ══════════ CARDS ══════════ */
+    .card {
+      background:rgba(255,255,255,0.035);
+      border:1px solid rgba(158,118,67,0.16);
+      border-bottom:2px solid var(--gold);
+      border-radius:4px; padding:2rem 1.6rem;
+      transition:background .3s, border-color .3s, transform .3s;
+      transition-delay:calc(var(--i,0) * 75ms);
+    }
+    .card:hover { background:rgba(255,255,255,0.06); border-color:rgba(158,118,67,.45); transform:translateY(-5px); }
+    .card-icon { font-size:28px; color:var(--gold); display:block; margin-bottom:1.1rem; }
+    .card-hd h3 { font-size:15px; margin-bottom:.5rem; line-height:1.35; }
+    .card-body p { color:var(--text-2); font-size:14px; line-height:1.65; }
+    .card-toggle { display:none; }
+    .card-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:1.3rem; }
+    .card-grid-5 { display:grid; grid-template-columns:repeat(5,1fr); gap:1.2rem; }
+
+    /* ══════════ EQUIPO ══════════ */
+    .team-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; }
+    .team-card { background:rgba(255,255,255,0.03); border:1px solid var(--rule); border-top:2px solid var(--gold); border-radius:4px; padding:2.4rem 1.8rem; text-align:center; transition:background .3s, transform .3s; }
+    .team-card:hover { background:rgba(255,255,255,0.055); transform:translateY(-4px); }
+    .team-avatar { width:80px; height:80px; border-radius:50%; border:1px solid var(--rule); display:flex; align-items:center; justify-content:center; margin:0 auto 1.4rem; background:var(--surface); }
+    .team-avatar img { width:55%; height:auto; opacity:.55; }
+    .team-name { font-family:'Montserrat',sans-serif; font-weight:800; font-size:17px; margin-bottom:.3rem; }
+    .team-role { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem; }
+    .team-divider { width:30px; height:1px; background:var(--rule); margin:0 auto 1rem; }
+    .team-card p { color:var(--text-2); font-size:14px; line-height:1.65; }
+
+    /* ══════════ STATS ══════════ */
+    .stats-inner { display:grid; grid-template-columns:55fr 45fr; gap:6rem; align-items:center; }
+    .stats-text h2 { margin-bottom:1.4rem; }
+    .stats-text p { color:var(--text-2); font-size:16px; margin-bottom:2rem; }
+    .stats-col { display:flex; flex-direction:column; }
+    .stat-item { padding:1.8rem 0; border-bottom:1px solid var(--rule); display:flex; align-items:center; gap:1.8rem; }
+    .stat-item:last-child { border-bottom:none; }
+    .stat-num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:52px; color:var(--gold); line-height:1; flex-shrink:0; min-width:120px; }
+    .stat-label { color:var(--text-2); font-size:15px; line-height:1.5; }
+
+    /* ══════════ PROCESO ══════════ */
+    .proc-steps { display:flex; align-items:flex-start; justify-content:center; }
+    .proc-step { flex:1; max-width:300px; text-align:center; padding:0 1.5rem; }
+    .proc-icon-wrap { width:68px; height:68px; border:1px solid var(--rule); border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 1.2rem; }
+    .proc-icon-wrap i { font-size:26px; color:var(--gold); }
+    .proc-num { font-family:'Montserrat',sans-serif; font-weight:900; font-size:10px; letter-spacing:.20em; color:var(--gold); display:block; margin-bottom:.4rem; }
+    .proc-step h3 { font-size:17px; margin-bottom:.5rem; }
+    .proc-step p { color:var(--text-2); font-size:15px; }
+    .proc-connector { width:60px; height:1px; background:var(--rule); flex-shrink:0; margin-top:2.4rem; }
+
+    /* ══════════ FAQ ══════════ */
+    .faq-wrap { max-width:640px; margin:2.5rem auto 0; }
+    .faq-item { border-bottom:1px solid var(--rule); }
+    .faq-q { display:flex; align-items:center; justify-content:space-between; padding:1.3rem 0; cursor:pointer; gap:1rem; }
+    .faq-q-text { flex:1; text-align:center; font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; }
+    .faq-icon { font-size:20px; color:var(--gold); flex-shrink:0; transition:transform .3s; font-style:normal; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+    .faq-a { text-align:center; color:var(--text-2); font-size:15px; max-height:0; overflow:hidden; transition:max-height .4s ease, padding .3s; }
+    .faq-item.open .faq-a { max-height:220px; padding-bottom:1.3rem; }
+
+    /* ══════════ CONTACTO ══════════ */
+    .contact-inner { display:grid; grid-template-columns:55fr 45fr; gap:4.5rem; margin-top:3rem; align-items:stretch; }
+    /* Formulario: flex col, botón empujado al fondo */
+    .contact-inner form { display:flex; flex-direction:column; }
+    .contact-inner form button[type="submit"] { margin-top:auto; }
+    .form-field { width:100%; background:var(--surface); border:1px solid var(--rule); color:var(--text); border-radius:3px; padding:12px 16px; font-family:'Nunito',sans-serif; font-size:15px; margin-bottom:1rem; outline:none; transition:border-color .2s; }
+    .form-field:focus { border-color:var(--gold); }
+    .form-field::placeholder { color:var(--text-2); }
+    textarea.form-field { resize:vertical; min-height:130px; }
+    /* Contact data: flex col, botón empujado al fondo */
+    .contact-data { display:flex; flex-direction:column; padding-top:.3rem; }
+    .contact-items-list { display:flex; flex-direction:column; gap:1.3rem; }
+    .contact-item { display:flex; align-items:flex-start; gap:.9rem; }
+    .contact-item i { color:var(--gold); font-size:19px; flex-shrink:0; margin-top:2px; }
+    .contact-item span { color:var(--text-2); font-size:15px; line-height:1.55; }
+    .contact-item a { color:var(--text-2); transition:color .2s; }
+    .contact-item a:hover { color:var(--gold); }
+    .contact-wa-btn { margin-top:auto; padding-top:1.6rem; }
+    .contact-wa-btn .btn { width:100%; justify-content:center; }
+    /* Google Map — modo oscuro via CSS filter */
+    .map-wrap { margin-top:3.5rem; border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
+    .map-wrap iframe { display:block; width:100%; height:320px; filter:invert(92%) hue-rotate(180deg) brightness(.88) saturate(.85); }
+
+    /* ══════════ FOOTER ══════════ */
+    footer { background:var(--dark); border-top:1px solid var(--rule); padding:64px 0 0; }
+    .footer-inner { display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; margin-bottom:3.5rem; }
+    .f-logo { height:74px; width:auto; margin-bottom:1rem; }
+    .f-tagline { color:var(--text-2); font-size:13px; margin-bottom:1.4rem; line-height:1.6; }
+    .f-social { display:flex; gap:.7rem; }
+    .f-social a { width:34px; height:34px; border:1px solid var(--rule); border-radius:2px; display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:14px; transition:background .2s, border-color .2s; }
+    .f-social a:hover { background:var(--gold-dim); border-color:var(--gold); }
+    .f-col h4 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:.20em; text-transform:uppercase; color:var(--gold); margin-bottom:1.3rem; }
+    .f-col ul { list-style:none; }
+    .f-col ul li { margin-bottom:.55rem; }
+    .f-col ul a { color:var(--text-2); font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.10em; text-transform:uppercase; transition:color .2s; }
+    .f-col ul a:hover { color:var(--gold); }
+    .f-data-item { display:flex; gap:.7rem; align-items:flex-start; margin-bottom:.85rem; }
+    .f-data-item i { color:var(--gold); font-size:15px; flex-shrink:0; margin-top:2px; }
+    .f-data-item span { color:var(--text-2); font-size:13px; line-height:1.5; }
+    /* footer gold accent line */
+    .footer-gold-line { width:100%; height:1px; background:linear-gradient(90deg, transparent, var(--gold), transparent); opacity:.3; margin-bottom:3rem; }
+    .footer-bottom { border-top:1px solid var(--rule); padding:1.5rem 0; text-align:center; }
+    .footer-bottom p { font-size:12px; color:var(--text-2); margin-bottom:.3rem; }
+    .footer-bottom a { color:var(--gold); }
+
+    /* ══════════ FLOAT BUTTONS ══════════ */
+    .float-btns {
+      position:fixed; bottom:24px; right:24px; z-index:998;
+      display:flex; flex-direction:column; gap:.65rem;
+      opacity:0; pointer-events:none; transition:opacity .4s;
+    }
+    .float-btns.vis { opacity:1; pointer-events:all; }
+    .float-btn {
+      width:54px; height:54px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      font-size:22px; color:#fff; border:none; cursor:pointer;
+      text-decoration:none; transition:transform .2s;
+    }
+    .float-btn:hover { transform:scale(1.09); }
+    .float-btn-top { background:var(--surface); border:1px solid var(--rule); color:var(--gold); font-size:18px; }
+    .float-btn-wa { background:linear-gradient(145deg,#25D366,#1a9a4e); box-shadow:0 4px 18px rgba(37,211,102,.35); }
+
+    /* ══════════ DECORATIVE GOLD ACCENTS ══════════ */
+    /* Small gold bar used as decoration between elements */
+    .gold-bar { display:block; width:36px; height:2px; background:var(--gold); opacity:.55; }
+    .gold-bar-center { margin:0 auto; }
+    /* Section decorative side lines */
+    .deco-line-left, .deco-line-right {
+      position:absolute; top:50%; width:60px; height:1px;
+      background:linear-gradient(90deg,var(--rule),transparent);
+    }
+    .deco-line-left  { left:0; }
+    .deco-line-right { right:0; background:linear-gradient(90deg,transparent,var(--rule)); }
+
+    /* ══════════ RESPONSIVE 1024px ══════════ */
+    @media(max-width:1024px) {
+      h1 { font-size:48px; }
+      h2 { font-size:36px; }
+      .card-grid-3 { grid-template-columns:repeat(2,1fr); }
+      .card-grid-5 { grid-template-columns:repeat(3,1fr); }
+      .team-grid { grid-template-columns:repeat(2,1fr); }
+      .stats-inner { gap:3.5rem; }
+      .footer-inner { grid-template-columns:1fr 1fr; }
+      .rama-col { padding:2rem 2.5rem; }
+      .hero-right { padding:140px 3rem 100px; }
+      .hero-left  { padding:140px 3rem 100px; }
+      .hero-logo-main { height:170px; }
+    }
+
+    /* ══════════ RESPONSIVE 768px ══════════ */
+    @media(max-width:768px) {
+      section { padding:72px 0; }
+      h1 { font-size:36px; }
+      h2 { font-size:27px; }
+
+      /* NAVBAR — logo centrado, invisible antes de scroll */
+      .h-inner { grid-template-columns:1fr; justify-items:center; }
+      .h-logo  { justify-self:center; }
+      nav.desk, .h-cta { display:none; }
+      .hamburger { display:block; }
+
+      /* HERO — height fijo, ambas secciones centradas juntas */
+      .hero { height:100vh; overflow:hidden; }
+      .hero-inner {
+        display:flex !important; flex-direction:column;
+        height:100%;
+        padding-top:108px;        /* clearance navbar */
+        justify-content:center;   /* centra el bloque logo+contenido */
+        gap:1.4rem;               /* espacio entre logo y h1 */
+      }
+      .hero-vline { display:none; }
+      .hero-corner { display:none; }
+      /* Logo: tamaño natural, sin padding extra */
+      .hero-left {
+        flex-shrink:0;
+        border-right:none; overflow:visible;
+        padding:0 1.5rem;
+        display:flex; flex-direction:column; align-items:center;
+      }
+      .hero-mark, .hero-ring { display:none; }
+      .hero-logo-main { height:155px; margin:0 auto; }
+      /* Contenido: tamaño natural, sin flex:1 */
+      .hero-right {
+        flex-shrink:0;
+        display:flex; flex-direction:column; align-items:center;
+        padding:0 1.5rem 1rem; text-align:center;
+      }
+      .hero-right h1 { font-size:34px; margin-bottom:.7rem; }
+      .hero-right > p { max-width:100%; font-size:16px !important; margin-bottom:1.4rem !important; }
+      .hero-ctas { justify-content:center; flex-direction:column; align-items:center; gap:.6rem; margin-bottom:1.2rem; }
+      .hero-tel  { justify-content:center; }
+
+      /* RAMAS */
+      .ramas-split { flex-direction:column; align-items:center; }
+      .ramas-divider { width:36px; height:1px; }
+      .rama-col { padding:1.5rem 1rem; max-width:100%; }
+
+      /* CARDS desktop → mobile collapsible */
+      .card-grid-3 { grid-template-columns:1fr; }
+      .card-grid-5 { grid-template-columns:1fr; }
+      .card { padding:1.2rem 1.2rem; }
+      .card-icon { display:none; }
+      .card.expanded .card-icon { display:block; margin-bottom:.9rem; }
+      .card-toggle {
+        display:flex; align-items:center; justify-content:center;
+        width:26px; height:26px; border-radius:50%;
+        border:1px solid var(--rule); color:var(--gold); background:none;
+        cursor:pointer; font-size:18px; flex-shrink:0;
+        line-height:1; transition:transform .3s; padding:0;
+      }
+      .card.expanded .card-toggle { transform:rotate(45deg); }
+      .card-hd { display:flex; align-items:center; justify-content:space-between; gap:.8rem; }
+      .card-hd h3 { flex:1; margin:0; font-size:14px; }
+      .card-body { max-height:0; overflow:hidden; transition:max-height .4s ease, margin .3s; }
+      .card.expanded .card-body { max-height:300px; margin-top:.9rem; }
+
+      /* TEAM */
+      .team-grid { grid-template-columns:1fr; }
+
+      /* STATS */
+      .stats-inner { grid-template-columns:1fr; gap:3rem; text-align:center; }
+      .stat-item { justify-content:center; }
+      .stat-num { font-size:44px; min-width:90px; }
+
+      /* PROCESO */
+      .proc-steps { flex-direction:column; align-items:center; }
+      .proc-connector { width:1px; height:36px; margin-top:0; }
+      .proc-step { max-width:100%; padding:1rem 0; }
+
+      /* CONTACTO — centered list pattern */
+      .contact-inner { grid-template-columns:1fr; gap:2.5rem; }
+      .contact-items-list { gap:1.1rem; }
+      .contact-item { position:relative; display:flex; align-items:center; justify-content:center; }
+      .contact-item i { position:absolute; left:0; }
+      .contact-item span { text-align:center; width:100%; }
+      .contact-wa-btn { padding-top:1.2rem; }
+      .contact-wa-btn .btn { width:100%; max-width:100%; }
+
+      /* FOOTER */
+      .footer-inner { grid-template-columns:1fr; text-align:center; }
+      .f-logo { margin:0 auto 1rem; height:74px; }
+      .f-social { justify-content:center; }
+      .f-data-item { justify-content:center; }
+
+      /* BUTTONS */
+      .btn { width:100%; max-width:300px; justify-content:center; }
+    }
+
+    /* Mobile chico = pantalla CORTA ≤760px de alto (iPhone SE, Samsung S8+, etc.) */
+    @media(max-width:768px) and (max-height:760px) {
+      h1 { font-size:24px; }
+      .hero-inner { padding-top:96px; gap:.9rem; }
+      .hero-logo-main { height:90px; }
+      .hero-gold-accent { margin-top:.7rem; }
+      .hero-right { padding:0 1.5rem .8rem; }
+      .hero-right h1 { font-size:24px; margin-bottom:.5rem; }
+      .hero-right > p { font-size:15px !important; margin-bottom:1rem !important; }
+      .hero-ctas { gap:.5rem; margin-bottom:.9rem; }
+      .hero-tel { font-size:12px; }
+      .btn { padding:11px 20px; font-size:10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <img src="./logo-completo.png" class="splash-logo" alt="Iustita">
+  <div class="splash-bar"></div>
+</div>
+
+<!-- NAVBAR -->
+<header id="header">
+  <div class="h-inner">
+    <div class="h-logo"><a href="#inicio"><img src="./logo-sintexto.png" alt="Iustita"></a></div>
+    <nav class="desk">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#inmobiliaria">Inmobiliaria</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="h-cta"><a href="#contacto" class="btn btn-gold">AGENDÁ TU CONSULTA</a></div>
+  </div>
+</header>
+<button class="hamburger" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+<div id="mnav-overlay"></div>
+<nav id="mnav">
+  <img src="./logo-completo.png" class="mnav-logo" alt="Iustita">
+  <div class="mnav-divider"></div>
+  <a href="#servicios"    class="mnav-link">Servicios</a>
+  <a href="#inmobiliaria" class="mnav-link">Inmobiliaria</a>
+  <a href="#equipo"       class="mnav-link">Equipo</a>
+  <a href="#contacto"     class="mnav-link">Contacto</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <span class="hero-vline"       aria-hidden="true"></span>
+  <span class="hero-corner hero-corner-tl" aria-hidden="true"></span>
+  <span class="hero-corner hero-corner-br" aria-hidden="true"></span>
+  <div class="hero-inner">
+    <!-- IZQUIERDA: logo grande -->
+    <div class="hero-left">
+      <img src="./logo-sintexto.png" class="hero-mark" aria-hidden="true">
+      <span class="hero-ring hero-ring-1" aria-hidden="true"></span>
+      <span class="hero-ring hero-ring-2" aria-hidden="true"></span>
+      <img src="./logo-completo.png" class="hero-logo-main" alt="Iustita">
+      <div class="hero-gold-accent"></div>
+      <span class="hero-tagline-sm">ESTUDIO JURÍDICO INTEGRAL · CÓRDOBA</span>
+    </div>
+    <!-- DERECHA: contenido -->
+    <div class="hero-right">
+      <h1>Soluciones Legales + Inmobiliaria<br><span class="gold">en un mismo lugar.</span></h1>
+      <p>Asesoramiento jurídico integral y gestión inmobiliaria profesional desde Córdoba, Argentina.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-gold">AGENDÁ TU CONSULTA</a>
+        <a href="#servicios" class="btn btn-outline">CONOCÉ MÁS</a>
+      </div>
+      <div class="hero-tel">
+        <i class="ti ti-phone"></i>
+        <span>0351 657-7116</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span>Divorcios</span><span class="sep"> ◆ </span>
+    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Alquileres y Ventas</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
+    <span>Administración de Propiedades</span><span class="sep"> ◆ </span>
+    <span>Cobranzas Judiciales</span><span class="sep"> ◆ </span>
+    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+    <span>Divorcios</span><span class="sep"> ◆ </span>
+    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Alquileres y Ventas</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
+    <span>Administración de Propiedades</span><span class="sep"> ◆ </span>
+    <span>Cobranzas Judiciales</span><span class="sep"> ◆ </span>
+    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+  </div>
+</div>
+
+<!-- DOS RAMAS -->
+<section class="dark-sec">
+  <div class="container">
+    <div class="ramas-head reveal">
+      <span class="eyebrow">NUESTRA PROPUESTA</span>
+      <h2>Una firma. Dos especialidades.</h2>
+      <p>Derecho integral + Inmobiliaria bajo el mismo techo.</p>
+    </div>
+    <div class="ramas-split">
+      <div class="rama-col reveal-left">
+        <i class="ti ti-scale rama-icon"></i>
+        <h3>Asesoramiento Jurídico</h3>
+        <ul class="rama-list">
+          <li><i class="ti ti-check"></i>Derecho Laboral</li>
+          <li><i class="ti ti-check"></i>Derecho Penal</li>
+          <li><i class="ti ti-check"></i>Derecho de Familia</li>
+          <li><i class="ti ti-check"></i>Sucesiones y Herencias</li>
+        </ul>
+        <span class="badge-pill">+ 8 áreas más</span>
+      </div>
+      <div class="ramas-divider"></div>
+      <div class="rama-col reveal-right">
+        <i class="ti ti-building-skyscraper rama-icon"></i>
+        <h3>Bienes Raíces</h3>
+        <ul class="rama-list">
+          <li><i class="ti ti-check"></i>Alquileres y Ventas</li>
+          <li><i class="ti ti-check"></i>Administración de Propiedades</li>
+          <li><i class="ti ti-check"></i>Tasaciones y Relevamientos</li>
+          <li><i class="ti ti-check"></i>Resguardo jurídico en operaciones</li>
+        </ul>
+        <span class="badge-pill">Gestión integral</span>
+      </div>
+    </div>
+    <div class="ramas-cta reveal"><a href="#servicios">VER TODOS LOS SERVICIOS ↓</a></div>
+  </div>
+</section>
+
+<!-- SERVICIOS JURÍDICOS -->
+<section class="grain" id="servicios">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">ASESORAMIENTO JURÍDICO</span>
+      <h2>Áreas de práctica legal</h2>
+      <p>Asesoramiento integral en todas las ramas del derecho, con enfoque personalizado y confidencial.</p>
+    </div>
+    <div class="card-grid-3">
+      <div class="card reveal" style="--i:0">
+        <div class="card-hd"><h3>Derecho Laboral</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-briefcase card-icon"></i><p>Despidos, diferencias salariales, accidentes de trabajo, indemnizaciones y convenios colectivos.</p></div>
+      </div>
+      <div class="card reveal" style="--i:1">
+        <div class="card-hd"><h3>Derecho Penal</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-shield card-icon"></i><p>Defensa y orientación legal con estrategia personalizada, resguardando derechos y garantías constitucionales.</p></div>
+      </div>
+      <div class="card reveal" style="--i:2">
+        <div class="card-hd"><h3>Juicios Ejecutivos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-gavel card-icon"></i><p>Cobro rápido y efectivo de créditos documentados: cheques, pagarés, facturas y títulos ejecutivos.</p></div>
+      </div>
+      <div class="card reveal" style="--i:3">
+        <div class="card-hd"><h3>Defensa del Consumidor</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-receipt card-icon"></i><p>Cobros indebidos, cláusulas abusivas, incumplimiento de contrato y estafas de consumo.</p></div>
+      </div>
+      <div class="card reveal" style="--i:4">
+        <div class="card-hd"><h3>Registro de Marcas</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-certificate card-icon"></i><p>Servicio completo ante el INPI. Asesoramiento legal estratégico para tu emprendimiento o producto.</p></div>
+      </div>
+      <div class="card reveal" style="--i:5">
+        <div class="card-hd"><h3>Cuotas Alimentarias</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-handshake card-icon"></i><p>Fijación, modificación y ejecución de cuota alimentaria y régimen de comunicación.</p></div>
+      </div>
+      <div class="card reveal" style="--i:6">
+        <div class="card-hd"><h3>Declaratoria de Herederos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-file-certificate card-icon"></i><p>Identificación legal de herederos, habilitación de la sucesión y protección de derechos patrimoniales.</p></div>
+      </div>
+      <div class="card reveal" style="--i:7">
+        <div class="card-hd"><h3>Consignación de Llaves</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-key card-icon"></i><p>Representación especializada para garantizar la efectiva devolución del inmueble y evitar responsabilidades.</p></div>
+      </div>
+      <div class="card reveal" style="--i:8">
+        <div class="card-hd"><h3>Sucesiones</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-users card-icon"></i><p>Asesoramiento en procesos sucesorios ab intestato y testamentarios conforme al CCYCN.</p></div>
+      </div>
+      <div class="card reveal" style="--i:9">
+        <div class="card-hd"><h3>Cobranzas Judiciales</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-credit-card card-icon"></i><p>Procesos de cobro para empresas, particulares y profesionales con protección integral de derechos.</p></div>
+      </div>
+      <div class="card reveal" style="--i:10">
+        <div class="card-hd"><h3>Constitución de Consorcios</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-building card-icon"></i><p>Asesoramiento integral en constitución de consorcio de propiedad horizontal.</p></div>
+      </div>
+      <div class="card reveal" style="--i:11">
+        <div class="card-hd"><h3>Divorcios</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-heart-off card-icon"></i><p>Representación en divorcio vincular por voluntad unilateral o conjunta, con enfoque humano.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS INMOBILIARIOS -->
+<section class="dark-sec" id="inmobiliaria">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">BIENES RAÍCES</span>
+      <h2>Gestión inmobiliaria integral</h2>
+      <p>Comercialización y administración de propiedades con respaldo jurídico en cada operación.</p>
+    </div>
+    <div class="card-grid-5">
+      <div class="card reveal" style="--i:0">
+        <div class="card-hd"><h3>Alquileres y Ventas</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-home card-icon"></i><p>Comercialización de propiedades con seguimiento jurídico personalizado y atención profesional.</p></div>
+      </div>
+      <div class="card reveal" style="--i:1">
+        <div class="card-hd"><h3>Administración de Propiedades</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-settings card-icon"></i><p>Gestión integral de inmuebles asegurando transparencia, seguridad y eficiencia en cada operación.</p></div>
+      </div>
+      <div class="card reveal" style="--i:2">
+        <div class="card-hd"><h3>Bienes Raíces</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-map-pin card-icon"></i><p>Asesoramiento en compra, venta e inversión inmobiliaria con respaldo jurídico profesional en Córdoba.</p></div>
+      </div>
+      <div class="card reveal" style="--i:3">
+        <div class="card-hd"><h3>Tasaciones y Relevamientos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-chart-bar card-icon"></i><p>Valuación profesional de propiedades con criterios actualizados del mercado cordobés.</p></div>
+      </div>
+      <div class="card reveal" style="--i:4">
+        <div class="card-hd"><h3>Resguardo Legal</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-shield-check card-icon"></i><p>Protección de derechos y obligaciones de las partes en cada transacción inmobiliaria.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="grain" id="equipo">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">NUESTRO EQUIPO</span>
+      <h2>Profesionales a tu servicio</h2>
+      <p>Un equipo comprometido con la excelencia jurídica e inmobiliaria en cada caso.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal" style="--i:0">
+        <div class="team-avatar"><img src="./logo-sintexto.png" alt=""></div>
+        <p class="team-name">Dr. [Nombre Apellido]</p>
+        <span class="team-role">Director &amp; Abogado</span>
+        <div class="team-divider"></div>
+        <p>Especialista en derecho laboral, sucesiones y juicios ejecutivos. Matrícula [Nº].</p>
+      </div>
+      <div class="team-card reveal" style="--i:1">
+        <div class="team-avatar"><img src="./logo-sintexto.png" alt=""></div>
+        <p class="team-name">Dra. [Nombre Apellido]</p>
+        <span class="team-role">Abogada</span>
+        <div class="team-divider"></div>
+        <p>Especialista en derecho de familia, divorcios, cuotas alimentarias y defensa del consumidor.</p>
+      </div>
+      <div class="team-card reveal" style="--i:2">
+        <div class="team-avatar"><img src="./logo-sintexto.png" alt=""></div>
+        <p class="team-name">[Nombre Apellido]</p>
+        <span class="team-role">Asesor Inmobiliario</span>
+        <div class="team-divider"></div>
+        <p>Especialista en gestión y comercialización de propiedades, tasaciones y administración.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="dark-sec" id="nosotros">
+  <div class="container">
+    <div class="stats-inner">
+      <div class="stats-text reveal-left">
+        <span class="eyebrow">POR QUÉ ELEGIRNOS</span>
+        <h2>Experiencia, integridad y resultados</h2>
+        <p>Somos Iustita Estudio Jurídico Integral, una firma con sede en Córdoba que combina asesoramiento jurídico con gestión inmobiliaria profesional. Acompañamos a cada cliente de manera personalizada y confidencial.</p>
+        <a href="#contacto" class="btn btn-outline">CONOCÉ MÁS</a>
+      </div>
+      <div class="stats-col reveal-right">
+        <div class="stat-item">
+          <span class="stat-num" data-target="10" data-suffix="+">0+</span>
+          <span class="stat-label">Años de trayectoria en Córdoba</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="1200" data-suffix="+">0+</span>
+          <span class="stat-label">Casos resueltos exitosamente</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="2">0</span>
+          <span class="stat-label">Especialidades bajo un mismo techo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section class="grain">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">CÓMO TRABAJAMOS</span>
+      <h2>La primera consulta, paso a paso</h2>
+      <p>Tres pasos simples para que puedas conocer tus opciones legales o inmobiliarias.</p>
+    </div>
+    <div class="proc-steps">
+      <div class="proc-step reveal">
+        <div class="proc-icon-wrap"><i class="ti ti-message-circle"></i></div>
+        <span class="proc-num">01</span>
+        <h3>Contanos tu caso</h3>
+        <p>Escribinos por WhatsApp o completá el formulario. Describí brevemente tu situación.</p>
+      </div>
+      <div class="proc-connector"></div>
+      <div class="proc-step reveal">
+        <div class="proc-icon-wrap"><i class="ti ti-calendar"></i></div>
+        <span class="proc-num">02</span>
+        <h3>Coordinamos la consulta</h3>
+        <p>Acordamos día y horario según tu disponibilidad. Presencial en Córdoba u online.</p>
+      </div>
+      <div class="proc-connector"></div>
+      <div class="proc-step reveal">
+        <div class="proc-icon-wrap"><i class="ti ti-check"></i></div>
+        <span class="proc-num">03</span>
+        <h3>Analizamos y te orientamos</h3>
+        <p>Revisamos tu situación, te explicamos tus derechos y evaluamos el mejor camino.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="dark-sec">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">PREGUNTAS FRECUENTES</span>
+      <h2>Lo que más nos consultan</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿Qué áreas legales cubre Iustita?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Somos un estudio integral: laboral, penal, familia, sucesiones, defensa del consumidor, juicios ejecutivos, registro de marcas, divorcios y más.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿También trabajan con propiedades?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Sí. Contamos con un área de bienes raíces que gestiona alquileres, ventas, administración de propiedades y tasaciones, con respaldo jurídico.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿Cómo agendo una consulta?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Podés escribirnos por WhatsApp al +54 9 351 657-7116, llamarnos al 0351 657-7116 o completar el formulario. Coordinamos día y horario a tu conveniencia.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿Trabajan con obras sociales o prepagos?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Nuestros honorarios profesionales se fijan conforme a la normativa del Colegio de Abogados de Córdoba.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿Atienden casos fuera de Córdoba?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Sí, podemos trabajar casos de otras provincias según la jurisdicción correspondiente. Consultanos tu situación puntual.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-text">¿En qué zona están ubicados?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Nuestra oficina está en Av. General Paz 120, Centro, Córdoba (x5000). También atendemos de forma remota por videollamada.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="grain" id="contacto">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">CONTACTO</span>
+      <h2>Contanos tu caso y te orientamos.</h2>
+    </div>
+    <div class="contact-inner">
+      <form action="#" class="reveal-left">
+        <input type="text"  class="form-field" placeholder="Nombre completo" required>
+        <input type="email" class="form-field" placeholder="Email" required>
+        <input type="tel"   class="form-field" placeholder="Teléfono">
+        <textarea class="form-field" placeholder="Describí tu consulta" rows="5"></textarea>
+        <button type="submit" class="btn btn-gold" style="max-width:100%;width:100%;">ENVIAR CONSULTA</button>
+      </form>
+      <div class="contact-data reveal-right">
+        <div class="contact-items-list">
+          <div class="contact-item">
+            <i class="ti ti-map-pin"></i>
+            <span>Av. General Paz 120, Centro<br>Córdoba, Argentina x5000</span>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-phone"></i>
+            <span><a href="tel:+5493516577116">0351 657-7116</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-brand-whatsapp"></i>
+            <span><a href="https://wa.me/5493516577116" target="_blank">+54 9 351 657-7116</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-mail"></i>
+            <span><a href="mailto:iustitaestudiojuridico@gmail.com">iustitaestudiojuridico@gmail.com</a></span>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-brand-instagram"></i>
+            <span><a href="https://instagram.com/iustita_estudiojuridico" target="_blank">@iustita_estudiojuridico</a></span>
+          </div>
+        </div>
+        <div class="contact-wa-btn">
+          <a href="https://wa.me/5493516577116" target="_blank" class="btn btn-gold">
+            ESCRIBIRNOS POR WHATSAPP
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- MAPA -->
+    <div class="map-wrap reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=Av+General+Paz+120+Córdoba+Argentina&output=embed"
+        width="100%" height="320" style="border:0;" allowfullscreen loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-gold-line"></div>
+    <div class="footer-inner">
+      <div>
+        <img src="./logo-completo.png" class="f-logo" alt="Iustita">
+        <p class="f-tagline">Estudio Jurídico Integral<br>Av. General Paz 120 · Córdoba</p>
+        <div class="f-social">
+          <a href="https://instagram.com/iustita_estudiojuridico" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/5493516577116" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h4>Servicios</h4>
+        <ul>
+          <li><a href="#servicios">Derecho Laboral</a></li>
+          <li><a href="#servicios">Derecho Penal</a></li>
+          <li><a href="#servicios">Divorcios</a></li>
+          <li><a href="#inmobiliaria">Alquileres y Ventas</a></li>
+          <li><a href="#inmobiliaria">Administración</a></li>
+          <li><a href="#inmobiliaria">Bienes Raíces</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contacto</h4>
+        <div class="f-data-item"><i class="ti ti-map-pin"></i><span>Av. General Paz 120, Centro<br>Córdoba x5000</span></div>
+        <div class="f-data-item"><i class="ti ti-phone"></i><span>0351 657-7116</span></div>
+        <div class="f-data-item"><i class="ti ti-brand-whatsapp"></i><span>+54 9 351 657-7116</span></div>
+        <div class="f-data-item"><i class="ti ti-mail"></i><span>iustitaestudiojuridico@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2026 Iustita Estudio Jurídico Integral. Todos los derechos reservados.</p>
+      <p>Desarrollado por <a href="#">sageeDev</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOAT BUTTONS -->
+<div class="float-btns" id="float-btns">
+  <button class="float-btn float-btn-top" id="btn-top" aria-label="Volver arriba">
+    <i class="ti ti-arrow-up"></i>
+  </button>
+  <a href="https://wa.me/5493516577116" class="float-btn float-btn-wa" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<script>
+  // SPLASH
+  const splash = document.getElementById('splash');
+  setTimeout(() => {
+    splash.classList.add('fade');
+    setTimeout(() => { splash.style.display = 'none'; }, 700);
+  }, 1900);
+
+  // NAVBAR + FLOAT BUTTONS on scroll
+  const header    = document.getElementById('header');
+  const floatBtns = document.getElementById('float-btns');
+  const hero      = document.querySelector('.hero');
+  function onScroll() {
+    const y = window.scrollY;
+    header.classList.toggle('sc', y > 70);
+    floatBtns.classList.toggle('vis', y > hero.offsetHeight * 0.5);
+  }
+  window.addEventListener('scroll', onScroll);
+
+  // BACK TO TOP
+  document.getElementById('btn-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // HAMBURGER
+  const ham     = document.getElementById('ham');
+  const mnav    = document.getElementById('mnav');
+  const overlay = document.getElementById('mnav-overlay');
+  const openMenu  = () => { mnav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; };
+  const closeMenu = () => { mnav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; };
+  ham.addEventListener('click', () => mnav.classList.contains('open') ? closeMenu() : openMenu());
+  overlay.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mnav-link').forEach(a => a.addEventListener('click', closeMenu));
+
+  // REVEAL
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el => revealObs.observe(el));
+
+  // COUNTUP
+  function countUp(el) {
+    const target = +el.dataset.target, suffix = el.dataset.suffix || '';
+    const step = target / (1800 / 16); let current = 0;
+    const t = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(t); }
+      el.textContent = Math.floor(current) + suffix;
+    }, 16);
+  }
+  const statObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { countUp(e.target); statObs.unobserve(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => statObs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement, isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // CARD TOGGLE (mobile collapsible)
+  document.querySelectorAll('.card-toggle').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      btn.closest('.card').classList.toggle('expanded');
+    });
+  });
+</script>
+</body>
+</html>
