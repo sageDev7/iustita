@@ -231,10 +231,9 @@
 
     /* ══════════ TICKER ══════════ */
     .ticker-wrap { background:var(--dark); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.9rem 0; overflow:hidden; }
-    .ticker-track { display:flex; gap:2.8rem; white-space:nowrap; animation:ticker 16s linear infinite; }
+    .ticker-track { display:flex; gap:2.8rem; white-space:nowrap; will-change:transform; }
     .ticker-track span { font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
     .ticker-track .sep { color:rgba(158,118,67,.32); }
-    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
     /* ══════════ DOS RAMAS ══════════ */
     .ramas-head { text-align:center; margin-bottom:2rem; }
@@ -493,6 +492,7 @@
         flex-shrink:0;
         border-right:none; overflow:visible;
         padding:0 1.5rem;
+        margin-bottom:1rem;
         display:flex; flex-direction:column; align-items:center;
       }
       .hero-mark, .hero-ring { display:none; }
@@ -505,11 +505,10 @@
       }
       .hero-right h1 { font-size:34px; margin-bottom:.7rem; }
       .hero-right > p { max-width:100%; font-size:16px !important; margin-bottom:1.4rem !important; }
-      .hero-ctas { justify-content:center; flex-direction:column; align-items:center; gap:.6rem; margin-bottom:1.2rem; }
+      .hero-ctas { justify-content:center; flex-direction:column; align-items:center; gap:.6rem; margin-top:.8rem; margin-bottom:1.2rem; }
       .hero-tel  { justify-content:center; }
 
       /* TICKER mobile */
-      .ticker-track { animation-duration:10s; }
 
       /* RAMAS */
       .ramas-split { flex-direction:column; align-items:center; }
@@ -573,11 +572,11 @@
     @media(max-width:768px) and (max-height:760px) {
       h1 { font-size:24px; }
       .hero-inner { padding-top:70px; padding-bottom:20px; gap:.9rem; }
-      .hero-logo-main { height:80px; }
+      .hero-logo-main { height:120px; }
       .hero-gold-accent { margin-top:.5rem; }
       .hero-tagline-sm { margin-top:.3rem; }
       .hero-right { padding:0 1.5rem .5rem; }
-      .hero-right h1 { font-size:22px; margin-bottom:.4rem; }
+      .hero-right h1 { font-size:28px; margin-bottom:.4rem; }
       .hero-right > p { font-size:14px !important; margin-bottom:.8rem !important; }
       .hero-ctas { gap:.4rem; margin-bottom:.7rem; }
       .hero-tel { font-size:11px; }
@@ -633,12 +632,12 @@
       <span class="hero-ring hero-ring-2" aria-hidden="true"></span>
       <img src="./logo-completo.png" class="hero-logo-main" alt="Iustita">
       <div class="hero-gold-accent"></div>
-      <span class="hero-tagline-sm">ESTUDIO JURÍDICO INTEGRAL · CÓRDOBA</span>
+      <span class="hero-tagline-sm">CÓRDOBA</span>
     </div>
     <!-- DERECHA: contenido -->
     <div class="hero-right">
       <p class="hero-slogan">Conocimiento legal al servicio de tus elecciones</p>
-      <h1>Soluciones Legales + Bienes Raíces<br><span class="gold">en un mismo lugar.</span></h1>
+      <h1>Soluciones Legales<br>+ Bienes Raíces<br><span class="gold">en un mismo lugar.</span></h1>
       <p>Asesoramiento jurídico integral y gestión inmobiliaria profesional desde Córdoba, Argentina.</p>
       <div class="hero-ctas">
         <a href="#contacto" class="btn btn-gold">AGENDÁ TU CONSULTA</a>
@@ -654,43 +653,7 @@
 
 <!-- TICKER -->
 <div class="ticker-wrap">
-  <div class="ticker-track">
-    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
-    <span>Derechos Reales</span><span class="sep"> ◆ </span>
-    <span>Sucesiones</span><span class="sep"> ◆ </span>
-    <span>Derecho Penal</span><span class="sep"> ◆ </span>
-    <span>Divorcios</span><span class="sep"> ◆ </span>
-    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
-    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
-    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
-    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
-    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
-    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
-    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
-    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
-    <span>Derechos Reales</span><span class="sep"> ◆ </span>
-    <span>Sucesiones</span><span class="sep"> ◆ </span>
-    <span>Derecho Penal</span><span class="sep"> ◆ </span>
-    <span>Divorcios</span><span class="sep"> ◆ </span>
-    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
-    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
-    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
-    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
-    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
-    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
-    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
-    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
-    <span>Derechos Reales</span><span class="sep"> ◆ </span>
-    <span>Sucesiones</span><span class="sep"> ◆ </span>
-    <span>Derecho Penal</span><span class="sep"> ◆ </span>
-    <span>Divorcios</span><span class="sep"> ◆ </span>
-    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
-    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
-    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
-    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
-    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
-    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
-    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+  <div class="ticker-track" id="ticker">
     <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
     <span>Derechos Reales</span><span class="sep"> ◆ </span>
     <span>Sucesiones</span><span class="sep"> ◆ </span>
@@ -1147,6 +1110,23 @@
       btn.closest('.card').classList.toggle('expanded');
     });
   });
+
+  // TICKER — seamless infinite scroll
+  (function(){
+    const track = document.getElementById('ticker');
+    const original = track.innerHTML;
+    track.innerHTML = original + original;
+    const speed = window.innerWidth <= 768 ? 1.5 : 0.8;
+    let pos = 0;
+    const half = track.scrollWidth / 2;
+    function move() {
+      pos -= speed;
+      if (pos <= -half) pos += half;
+      track.style.transform = 'translateX(' + pos + 'px)';
+      requestAnimationFrame(move);
+    }
+    requestAnimationFrame(move);
+  })();
 </script>
 </body>
 </html>
