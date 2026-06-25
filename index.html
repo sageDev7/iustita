@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Iustita — Estudio Jurídico Integral | Legal + Inmobiliaria | Córdoba</title>
   <meta name="description" content="Estudio jurídico integral en Córdoba. Divorcios, laboral, penal, sucesiones y más. También bienes raíces, alquileres y administración de propiedades.">
+  <link rel="icon" href="./logo-sintexto.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -90,7 +91,7 @@
       transition:opacity .65s ease;
     }
     #splash.fade { opacity:0; pointer-events:none; }
-    .splash-logo { height:110px; width:auto; animation:splashIn .7s cubic-bezier(.2,.7,.2,1) .3s both; }
+    .splash-logo { height:149px; width:auto; animation:splashIn .7s cubic-bezier(.2,.7,.2,1) .3s both; }
     .splash-bar { width:0; height:1px; background:var(--gold); animation:splashBar .5s ease .95s forwards; }
     @keyframes splashIn { from{opacity:0;transform:scale(.92)} to{opacity:1;transform:scale(1)} }
     @keyframes splashBar { to{width:72px} }
@@ -120,10 +121,18 @@
     nav.desk a:hover::after { width:100%; }
     .h-cta { justify-self:end; }
     .h-cta .btn { padding:9px 20px; font-size:10px; letter-spacing:.16em; }
+    .hero-slogan {
+      font-family:'Nunito',sans-serif; font-style:italic; font-size:12px;
+      color:#fff; opacity:.55; margin-bottom:.8rem; letter-spacing:.02em;
+    }
 
     /* HAMBURGER */
-    .hamburger { display:none; position:fixed; top:22px; right:22px; z-index:1001; background:none; border:none; cursor:pointer; padding:6px; }
-    .hamburger span { display:block; width:22px; height:1.5px; background:var(--text); margin:5px 0; transition:.3s; }
+    .hamburger { display:none; position:fixed; top:0; right:22px; height:104px; z-index:1001; background:none; border:none; cursor:pointer; padding:6px; }
+    .hamburger-lines { display:flex; flex-direction:column; gap:5px; }
+    .hamburger span { display:block; width:22px; height:1.5px; background:var(--text); transition:transform .3s, opacity .3s; transform-origin:center; }
+    .hamburger.active span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity:0; }
+    .hamburger.active span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); }
 
     /* MOBILE PANEL */
     #mnav {
@@ -133,7 +142,7 @@
       transition:right .35s cubic-bezier(.2,.7,.2,1);
     }
     #mnav.open { right:0; }
-    .mnav-logo { height:75px; width:auto; opacity:.88; }
+    .mnav-logo { height:101px; width:auto; opacity:.88; }
     .mnav-divider { width:36px; height:1px; background:var(--rule); margin:.5rem 0 .8rem; }
     #mnav a { font-family:'Montserrat',sans-serif; font-weight:700; font-size:13px; letter-spacing:.16em; text-transform:uppercase; color:var(--text-2); padding:.55rem 0; transition:color .2s; }
     #mnav a:hover { color:var(--gold); }
@@ -222,7 +231,7 @@
 
     /* ══════════ TICKER ══════════ */
     .ticker-wrap { background:var(--dark); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:.9rem 0; overflow:hidden; }
-    .ticker-track { display:flex; gap:2.8rem; white-space:nowrap; animation:ticker 50s linear infinite; }
+    .ticker-track { display:flex; gap:2.8rem; white-space:nowrap; animation:ticker 16s linear infinite; }
     .ticker-track span { font-family:'Montserrat',sans-serif; font-weight:700; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
     .ticker-track .sep { color:rgba(158,118,67,.32); }
     @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
@@ -271,6 +280,29 @@
     .team-role { font-family:'Montserrat',sans-serif; font-weight:700; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:1rem; }
     .team-divider { width:30px; height:1px; background:var(--rule); margin:0 auto 1rem; }
     .team-card p { color:var(--text-2); font-size:14px; line-height:1.65; }
+
+    /* EQUIPO section — fondo blanco con grain */
+    .equipo-sec {
+      position:relative; background:#f7f7f5; padding:100px 0;
+    }
+    .equipo-sec::before {
+      content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+    }
+    .equipo-sec > * { position:relative; z-index:1; }
+    .equipo-sec .sec-head .eyebrow { color:var(--gold); }
+    .equipo-sec .sec-head .eyebrow::after { background:var(--gold); }
+    .equipo-sec .sec-head h2 { color:var(--bg); }
+    .equipo-sec .sec-head p { color:#555; }
+    .equipo-sec .team-card {
+      background:#eceae6; border-color:rgba(158,118,67,0.18);
+      border-top:2px solid var(--gold);
+    }
+    .equipo-sec .team-card:hover { background:#e4e2dd; }
+    .equipo-sec .team-name { color:var(--bg); }
+    .equipo-sec .team-card p { color:#555; }
+    .equipo-sec .team-divider { background:rgba(158,118,67,0.3); }
+    .equipo-sec .team-avatar { background:#ddd; border-color:rgba(158,118,67,0.25); }
 
     /* ══════════ STATS ══════════ */
     .stats-inner { display:grid; grid-template-columns:55fr 45fr; gap:6rem; align-items:center; }
@@ -324,6 +356,43 @@
     /* Google Map — modo oscuro via CSS filter */
     .map-wrap { margin-top:3.5rem; border:1px solid var(--rule); border-radius:4px; overflow:hidden; }
     .map-wrap iframe { display:block; width:100%; height:320px; filter:invert(92%) hue-rotate(180deg) brightness(.88) saturate(.85); }
+
+    /* CONTACTO section — fondo blanco con grain */
+    .contacto-sec {
+      position:relative; background:#f7f7f5; padding:100px 0;
+    }
+    .contacto-sec::before {
+      content:''; position:absolute; inset:0; pointer-events:none; z-index:0;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.028'/%3E%3C/svg%3E");
+    }
+    .contacto-sec > * { position:relative; z-index:1; }
+    .contacto-sec .sec-head .eyebrow { color:var(--gold); }
+    .contacto-sec .sec-head .eyebrow::after { background:var(--gold); }
+    .contacto-sec .sec-head h2 { color:var(--bg); }
+    .contacto-sec .contact-inner form {
+      background:#eceae6; border-radius:6px; padding:2rem;
+      border:1px solid rgba(158,118,67,0.15);
+    }
+    .contacto-sec .form-field {
+      background:#fff; border:1px solid rgba(158,118,67,0.25);
+      color:var(--bg);
+    }
+    .contacto-sec .form-field::placeholder { color:#888; }
+    .contacto-sec .form-field:focus { border-color:var(--gold); }
+    .contacto-sec .contact-data {
+      background:#eceae6; border-radius:6px; padding:2rem;
+      border:1px solid rgba(158,118,67,0.15);
+      display:flex; flex-direction:column;
+    }
+    .contacto-sec .contact-items-list { flex:1; display:flex; flex-direction:column; justify-content:center; gap:1.3rem; }
+    .contacto-sec .contact-item { display:flex; align-items:center; justify-content:center; gap:.55rem; }
+    .contacto-sec .contact-item i { color:var(--gold); flex-shrink:0; }
+    .contacto-sec .contact-item span { color:#444; }
+    .contacto-sec .contact-item a { color:#444; }
+    .contacto-sec .contact-item a:hover { color:var(--gold); }
+    .contacto-sec .contact-wa-btn { margin-top:auto; padding-top:1.6rem; }
+    .contacto-sec .map-wrap { border-color:#ddd; }
+    .contacto-sec .map-wrap iframe { filter:none; }
 
     /* ══════════ FOOTER ══════════ */
     footer { background:var(--dark); border-top:1px solid var(--rule); padding:64px 0 0; }
@@ -401,16 +470,21 @@
       .h-inner { grid-template-columns:1fr; justify-items:center; }
       .h-logo  { justify-self:center; }
       nav.desk, .h-cta { display:none; }
-      .hamburger { display:block; }
+      .hamburger { display:flex; align-items:center; justify-content:center; }
+
+      /* EQUIPO / CONTACTO white sections */
+      .equipo-sec { padding:72px 0; }
+      .contacto-sec { padding:72px 0; }
 
       /* HERO — height fijo, ambas secciones centradas juntas */
-      .hero { height:100vh; overflow:hidden; }
+      .hero { height:100svh; min-height:100vh; overflow:hidden; }
       .hero-inner {
         display:flex !important; flex-direction:column;
         height:100%;
-        padding-top:108px;        /* clearance navbar */
-        justify-content:center;   /* centra el bloque logo+contenido */
-        gap:1.4rem;               /* espacio entre logo y h1 */
+        padding-top:80px;
+        padding-bottom:24px;
+        justify-content:center;
+        gap:1.4rem;
       }
       .hero-vline { display:none; }
       .hero-corner { display:none; }
@@ -433,6 +507,9 @@
       .hero-right > p { max-width:100%; font-size:16px !important; margin-bottom:1.4rem !important; }
       .hero-ctas { justify-content:center; flex-direction:column; align-items:center; gap:.6rem; margin-bottom:1.2rem; }
       .hero-tel  { justify-content:center; }
+
+      /* TICKER mobile */
+      .ticker-track { animation-duration:10s; }
 
       /* RAMAS */
       .ramas-split { flex-direction:column; align-items:center; }
@@ -473,10 +550,12 @@
 
       /* CONTACTO — centered list pattern */
       .contact-inner { grid-template-columns:1fr; gap:2.5rem; }
-      .contact-items-list { gap:1.1rem; }
-      .contact-item { position:relative; display:flex; align-items:center; justify-content:center; }
-      .contact-item i { position:absolute; left:0; }
-      .contact-item span { text-align:center; width:100%; }
+      .contact-items-list { gap:1.3rem; }
+      .contact-item, .contacto-sec .contact-item {
+        flex-direction:column; align-items:center; justify-content:center; gap:.3rem;
+      }
+      .contact-item i, .contacto-sec .contact-item i { position:static; font-size:22px; }
+      .contact-item span { text-align:center; }
       .contact-wa-btn { padding-top:1.2rem; }
       .contact-wa-btn .btn { width:100%; max-width:100%; }
 
@@ -493,15 +572,17 @@
     /* Mobile chico = pantalla CORTA ≤760px de alto (iPhone SE, Samsung S8+, etc.) */
     @media(max-width:768px) and (max-height:760px) {
       h1 { font-size:24px; }
-      .hero-inner { padding-top:96px; gap:.9rem; }
-      .hero-logo-main { height:90px; }
-      .hero-gold-accent { margin-top:.7rem; }
-      .hero-right { padding:0 1.5rem .8rem; }
-      .hero-right h1 { font-size:24px; margin-bottom:.5rem; }
-      .hero-right > p { font-size:15px !important; margin-bottom:1rem !important; }
-      .hero-ctas { gap:.5rem; margin-bottom:.9rem; }
-      .hero-tel { font-size:12px; }
-      .btn { padding:11px 20px; font-size:10px; }
+      .hero-inner { padding-top:70px; padding-bottom:20px; gap:.9rem; }
+      .hero-logo-main { height:80px; }
+      .hero-gold-accent { margin-top:.5rem; }
+      .hero-tagline-sm { margin-top:.3rem; }
+      .hero-right { padding:0 1.5rem .5rem; }
+      .hero-right h1 { font-size:22px; margin-bottom:.4rem; }
+      .hero-right > p { font-size:14px !important; margin-bottom:.8rem !important; }
+      .hero-ctas { gap:.4rem; margin-bottom:.7rem; }
+      .hero-tel { font-size:11px; }
+      .hero-slogan { font-size:10px; margin-bottom:.5rem; }
+      .btn { padding:10px 18px; font-size:10px; }
     }
   </style>
 </head>
@@ -520,20 +601,21 @@
     <nav class="desk">
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
-      <a href="#inmobiliaria">Inmobiliaria</a>
+      <a href="#inmobiliaria">Bienes Raíces</a>
       <a href="#equipo">Equipo</a>
       <a href="#contacto">Contacto</a>
     </nav>
     <div class="h-cta"><a href="#contacto" class="btn btn-gold">AGENDÁ TU CONSULTA</a></div>
   </div>
+
 </header>
-<button class="hamburger" id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+<button class="hamburger" id="ham" aria-label="Menú"><div class="hamburger-lines"><span></span><span></span><span></span></div></button>
 <div id="mnav-overlay"></div>
 <nav id="mnav">
   <img src="./logo-completo.png" class="mnav-logo" alt="Iustita">
   <div class="mnav-divider"></div>
   <a href="#servicios"    class="mnav-link">Servicios</a>
-  <a href="#inmobiliaria" class="mnav-link">Inmobiliaria</a>
+  <a href="#inmobiliaria" class="mnav-link">Bienes Raíces</a>
   <a href="#equipo"       class="mnav-link">Equipo</a>
   <a href="#contacto"     class="mnav-link">Contacto</a>
 </nav>
@@ -555,7 +637,8 @@
     </div>
     <!-- DERECHA: contenido -->
     <div class="hero-right">
-      <h1>Soluciones Legales + Inmobiliaria<br><span class="gold">en un mismo lugar.</span></h1>
+      <p class="hero-slogan">Conocimiento legal al servicio de tus elecciones</p>
+      <h1>Soluciones Legales + Bienes Raíces<br><span class="gold">en un mismo lugar.</span></h1>
       <p>Asesoramiento jurídico integral y gestión inmobiliaria profesional desde Córdoba, Argentina.</p>
       <div class="hero-ctas">
         <a href="#contacto" class="btn btn-gold">AGENDÁ TU CONSULTA</a>
@@ -572,26 +655,54 @@
 <!-- TICKER -->
 <div class="ticker-wrap">
   <div class="ticker-track">
+    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
+    <span>Derechos Reales</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
     <span>Divorcios</span><span class="sep"> ◆ </span>
     <span>Derecho Laboral</span><span class="sep"> ◆ </span>
-    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
-    <span>Sucesiones</span><span class="sep"> ◆ </span>
-    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
-    <span>Alquileres y Ventas</span><span class="sep"> ◆ </span>
-    <span>Derecho Penal</span><span class="sep"> ◆ </span>
-    <span>Administración de Propiedades</span><span class="sep"> ◆ </span>
-    <span>Cobranzas Judiciales</span><span class="sep"> ◆ </span>
+    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
     <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
+    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
+    <span>Derechos Reales</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
     <span>Divorcios</span><span class="sep"> ◆ </span>
     <span>Derecho Laboral</span><span class="sep"> ◆ </span>
-    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
-    <span>Sucesiones</span><span class="sep"> ◆ </span>
-    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
-    <span>Alquileres y Ventas</span><span class="sep"> ◆ </span>
-    <span>Derecho Penal</span><span class="sep"> ◆ </span>
-    <span>Administración de Propiedades</span><span class="sep"> ◆ </span>
-    <span>Cobranzas Judiciales</span><span class="sep"> ◆ </span>
+    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
     <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
+    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
+    <span>Derechos Reales</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
+    <span>Divorcios</span><span class="sep"> ◆ </span>
+    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
+    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
+    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
+    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
+    <span>Derecho Inmobiliario</span><span class="sep"> ◆ </span>
+    <span>Derechos Reales</span><span class="sep"> ◆ </span>
+    <span>Sucesiones</span><span class="sep"> ◆ </span>
+    <span>Derecho Penal</span><span class="sep"> ◆ </span>
+    <span>Divorcios</span><span class="sep"> ◆ </span>
+    <span>Derecho Laboral</span><span class="sep"> ◆ </span>
+    <span>Juicios Ejecutivos</span><span class="sep"> ◆ </span>
+    <span>Defensa del Consumidor</span><span class="sep"> ◆ </span>
+    <span>Registro de Marcas</span><span class="sep"> ◆ </span>
+    <span>Cuotas Alimentarias</span><span class="sep"> ◆ </span>
+    <span>Asesoramiento Empresarial</span><span class="sep"> ◆ </span>
+    <span>Bienes Raíces</span><span class="sep"> ◆ </span>
   </div>
 </div>
 
@@ -600,18 +711,18 @@
   <div class="container">
     <div class="ramas-head reveal">
       <span class="eyebrow">NUESTRA PROPUESTA</span>
-      <h2>Una firma. Dos especialidades.</h2>
-      <p>Derecho integral + Inmobiliaria bajo el mismo techo.</p>
+      <h2>Una firma, soluciones que conectan profesionales.</h2>
+      <p>Derecho Integral + Negocios Inmobiliarios + Gestión Empresarial</p>
     </div>
     <div class="ramas-split">
       <div class="rama-col reveal-left">
         <i class="ti ti-scale rama-icon"></i>
         <h3>Asesoramiento Jurídico</h3>
         <ul class="rama-list">
-          <li><i class="ti ti-check"></i>Derecho Laboral</li>
-          <li><i class="ti ti-check"></i>Derecho Penal</li>
-          <li><i class="ti ti-check"></i>Derecho de Familia</li>
+          <li><i class="ti ti-check"></i>Derecho Inmobiliario</li>
+          <li><i class="ti ti-check"></i>Derechos Reales</li>
           <li><i class="ti ti-check"></i>Sucesiones y Herencias</li>
+          <li><i class="ti ti-check"></i>Derecho Penal</li>
         </ul>
         <span class="badge-pill">+ 8 áreas más</span>
       </div>
@@ -620,10 +731,10 @@
         <i class="ti ti-building-skyscraper rama-icon"></i>
         <h3>Bienes Raíces</h3>
         <ul class="rama-list">
-          <li><i class="ti ti-check"></i>Alquileres y Ventas</li>
-          <li><i class="ti ti-check"></i>Administración de Propiedades</li>
+          <li><i class="ti ti-check"></i>Administración y Venta</li>
           <li><i class="ti ti-check"></i>Tasaciones y Relevamientos</li>
-          <li><i class="ti ti-check"></i>Resguardo jurídico en operaciones</li>
+          <li><i class="ti ti-check"></i>Mantenimiento</li>
+          <li><i class="ti ti-check"></i>Resguardo Jurídico en Operaciones</li>
         </ul>
         <span class="badge-pill">Gestión integral</span>
       </div>
@@ -642,52 +753,52 @@
     </div>
     <div class="card-grid-3">
       <div class="card reveal" style="--i:0">
-        <div class="card-hd"><h3>Derecho Laboral</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-briefcase card-icon"></i><p>Despidos, diferencias salariales, accidentes de trabajo, indemnizaciones y convenios colectivos.</p></div>
+        <div class="card-hd"><h3>Derecho Inmobiliario</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-home-2 card-icon"></i><p>Seguridad jurídica para propietarios, inquilinos e inversores en cada operación inmobiliaria. Asesoramiento en contratos, constitución de consorcios, desalojos y resolución de conflictos vinculados a inmuebles.</p></div>
       </div>
       <div class="card reveal" style="--i:1">
-        <div class="card-hd"><h3>Derecho Penal</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-shield card-icon"></i><p>Defensa y orientación legal con estrategia personalizada, resguardando derechos y garantías constitucionales.</p></div>
+        <div class="card-hd"><h3>Derechos Reales</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-file-check card-icon"></i><p>Soluciones jurídicas para la regularización, protección y transmisión de derechos sobre inmuebles. Actuamos en usucapiones, escrituraciones, usufructos, servidumbres y conflictos de consorcios.</p></div>
       </div>
       <div class="card reveal" style="--i:2">
-        <div class="card-hd"><h3>Juicios Ejecutivos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-gavel card-icon"></i><p>Cobro rápido y efectivo de créditos documentados: cheques, pagarés, facturas y títulos ejecutivos.</p></div>
+        <div class="card-hd"><h3>Declaratorias de Herederos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-file-certificate card-icon"></i><p>Brindamos soluciones ágiles y seguras para la tramitación de declaratorias de herederos, resguardando el patrimonio familiar y los derechos de cada sucesor.</p></div>
       </div>
       <div class="card reveal" style="--i:3">
-        <div class="card-hd"><h3>Defensa del Consumidor</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-receipt card-icon"></i><p>Cobros indebidos, cláusulas abusivas, incumplimiento de contrato y estafas de consumo.</p></div>
+        <div class="card-hd"><h3>Sucesiones</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-users card-icon"></i><p>Acompañamiento legal en todas las etapas del proceso sucesorio, brindando soluciones ágiles y seguras para la transmisión de bienes y la regularización patrimonial. Tracto abreviado.</p></div>
       </div>
       <div class="card reveal" style="--i:4">
-        <div class="card-hd"><h3>Registro de Marcas</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-certificate card-icon"></i><p>Servicio completo ante el INPI. Asesoramiento legal estratégico para tu emprendimiento o producto.</p></div>
+        <div class="card-hd"><h3>Derecho Penal</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-shield card-icon"></i><p>Representación en defensa penal, querellas particulares y ejecución penal, desarrollando estrategias jurídicas sólidas y personalizadas bajo los más altos estándares de confidencialidad.</p></div>
       </div>
       <div class="card reveal" style="--i:5">
-        <div class="card-hd"><h3>Cuotas Alimentarias</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-handshake card-icon"></i><p>Fijación, modificación y ejecución de cuota alimentaria y régimen de comunicación.</p></div>
+        <div class="card-hd"><h3>Juicios Ejecutivos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-gavel card-icon"></i><p>Estrategias legales para el recupero rápido y eficiente de créditos documentados. Actuamos en ejecuciones de cheques, pagarés, facturas y otros títulos ejecutivos.</p></div>
       </div>
       <div class="card reveal" style="--i:6">
-        <div class="card-hd"><h3>Declaratoria de Herederos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-file-certificate card-icon"></i><p>Identificación legal de herederos, habilitación de la sucesión y protección de derechos patrimoniales.</p></div>
+        <div class="card-hd"><h3>Defensa del Consumidor</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-receipt card-icon"></i><p>Defendemos tus derechos frente a empresas y proveedores. Intervenimos en casos de cobros indebidos, cláusulas abusivas, incumplimientos contractuales y estafas de consumo.</p></div>
       </div>
       <div class="card reveal" style="--i:7">
-        <div class="card-hd"><h3>Consignación de Llaves</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-key card-icon"></i><p>Representación especializada para garantizar la efectiva devolución del inmueble y evitar responsabilidades.</p></div>
+        <div class="card-hd"><h3>Registro de Marcas</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-certificate card-icon"></i><p>Protegé el activo más valioso de tu negocio. Brindamos servicio integral ante el INPI, gestionando registros, renovaciones, transferencias, nulidades y defensa de tus derechos marcarios.</p></div>
       </div>
       <div class="card reveal" style="--i:8">
-        <div class="card-hd"><h3>Sucesiones</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-users card-icon"></i><p>Asesoramiento en procesos sucesorios ab intestato y testamentarios conforme al CCYCN.</p></div>
+        <div class="card-hd"><h3>Cuotas Alimentarias</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-heart-handshake card-icon"></i><p>Soluciones jurídicas para la fijación, modificación y cobro de cuotas alimentarias, garantizando el cumplimiento de las obligaciones familiares y el adecuado régimen de comunicación.</p></div>
       </div>
       <div class="card reveal" style="--i:9">
-        <div class="card-hd"><h3>Cobranzas Judiciales</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-credit-card card-icon"></i><p>Procesos de cobro para empresas, particulares y profesionales con protección integral de derechos.</p></div>
+        <div class="card-hd"><h3>Divorcios</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-heart-off card-icon"></i><p>Representación en divorcios por voluntad unilateral o conjunta, con un enfoque humano, estratégico y orientado a la resolución efectiva de los conflictos familiares.</p></div>
       </div>
       <div class="card reveal" style="--i:10">
-        <div class="card-hd"><h3>Constitución de Consorcios</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-building card-icon"></i><p>Asesoramiento integral en constitución de consorcio de propiedad horizontal.</p></div>
+        <div class="card-hd"><h3>Asesoramiento Empresarial</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-building card-icon"></i><p>Asesoramos a empresas, emprendedores y profesionales en la gestión legal de sus negocios, brindando soluciones preventivas y estratégicas para su crecimiento y seguridad jurídica.</p></div>
       </div>
       <div class="card reveal" style="--i:11">
-        <div class="card-hd"><h3>Divorcios</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-heart-off card-icon"></i><p>Representación en divorcio vincular por voluntad unilateral o conjunta, con enfoque humano.</p></div>
+        <div class="card-hd"><h3>Derecho Laboral</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-briefcase card-icon"></i><p>Protección efectiva de los derechos de trabajadores y empleadores. Intervenimos en despidos, reclamos salariales, accidentes de trabajo, indemnizaciones y conflictos derivados de la relación laboral.</p></div>
       </div>
     </div>
   </div>
@@ -708,11 +819,11 @@
       </div>
       <div class="card reveal" style="--i:1">
         <div class="card-hd"><h3>Administración de Propiedades</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-settings card-icon"></i><p>Gestión integral de inmuebles asegurando transparencia, seguridad y eficiencia en cada operación.</p></div>
+        <div class="card-body"><i class="ti ti-settings card-icon"></i><p>Gestión integral de inmuebles, constitución y administración de consorcios. Actuamos con transparencia, seguridad y eficiencia.</p></div>
       </div>
       <div class="card reveal" style="--i:2">
-        <div class="card-hd"><h3>Bienes Raíces</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
-        <div class="card-body"><i class="ti ti-map-pin card-icon"></i><p>Asesoramiento en compra, venta e inversión inmobiliaria con respaldo jurídico profesional en Córdoba.</p></div>
+        <div class="card-hd"><h3>Servicio de Mantenimiento</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
+        <div class="card-body"><i class="ti ti-tool card-icon"></i><p>Soluciones integrales para la conservación, mantenimiento y puesta en valor de inmuebles residenciales, comerciales y corporativos.</p></div>
       </div>
       <div class="card reveal" style="--i:3">
         <div class="card-hd"><h3>Tasaciones y Relevamientos</h3><button class="card-toggle" aria-label="Ver más">+</button></div>
@@ -727,12 +838,12 @@
 </section>
 
 <!-- EQUIPO -->
-<section class="grain" id="equipo">
+<section class="equipo-sec" id="equipo">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">NUESTRO EQUIPO</span>
       <h2>Profesionales a tu servicio</h2>
-      <p>Un equipo comprometido con la excelencia jurídica e inmobiliaria en cada caso.</p>
+      <p>Un equipo comprometido con la excelencia profesional en cada caso.</p>
     </div>
     <div class="team-grid">
       <div class="team-card reveal" style="--i:0">
@@ -766,8 +877,8 @@
     <div class="stats-inner">
       <div class="stats-text reveal-left">
         <span class="eyebrow">POR QUÉ ELEGIRNOS</span>
-        <h2>Experiencia, integridad y resultados</h2>
-        <p>Somos Iustita Estudio Jurídico Integral, una firma con sede en Córdoba que combina asesoramiento jurídico con gestión inmobiliaria profesional. Acompañamos a cada cliente de manera personalizada y confidencial.</p>
+        <h2>Profesionalismo, transparencia y resultados</h2>
+        <p>Creemos que cada cliente merece un asesoramiento claro, honesto y eficiente. Trabajamos con compromiso, confidencialidad y una visión estratégica orientada a prevenir riesgos, resolver conflictos y alcanzar soluciones concretas que protejan sus intereses.</p>
         <a href="#contacto" class="btn btn-outline">CONOCÉ MÁS</a>
       </div>
       <div class="stats-col reveal-right">
@@ -780,8 +891,8 @@
           <span class="stat-label">Casos resueltos exitosamente</span>
         </div>
         <div class="stat-item">
-          <span class="stat-num" data-target="2">0</span>
-          <span class="stat-label">Especialidades bajo un mismo techo</span>
+          <span class="stat-num" data-target="9" data-suffix="+">0+</span>
+          <span class="stat-label">Distintas especialidades.<br>Una solución integral</span>
         </div>
       </div>
     </div>
@@ -794,7 +905,7 @@
     <div class="sec-head reveal">
       <span class="eyebrow">CÓMO TRABAJAMOS</span>
       <h2>La primera consulta, paso a paso</h2>
-      <p>Tres pasos simples para que puedas conocer tus opciones legales o inmobiliarias.</p>
+      <p>Tres pasos simples para que puedas conocer tus opciones.</p>
     </div>
     <div class="proc-steps">
       <div class="proc-step reveal">
@@ -835,15 +946,15 @@
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="faq-q-text">¿También trabajan con propiedades?</span><i class="faq-icon">+</i></div>
-        <div class="faq-a">Sí. Contamos con un área de bienes raíces que gestiona alquileres, ventas, administración de propiedades y tasaciones, con respaldo jurídico.</div>
+        <div class="faq-a">Sí. Ofrecemos servicios de gestión inmobiliaria, incluyendo alquileres, ventas, administración de propiedades, relevamientos, tasaciones y mantenimiento, con el respaldo jurídico de un equipo multidisciplinario.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="faq-q-text">¿Cómo agendo una consulta?</span><i class="faq-icon">+</i></div>
-        <div class="faq-a">Podés escribirnos por WhatsApp al +54 9 351 657-7116, llamarnos al 0351 657-7116 o completar el formulario. Coordinamos día y horario a tu conveniencia.</div>
+        <div class="faq-a">Es muy simple. Podés escribirnos por WhatsApp, llamarnos o completar el formulario de contacto. Nos comunicaremos a la brevedad para coordinar una consulta en el día y horario que te resulte más conveniente.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q"><span class="faq-q-text">¿Trabajan con obras sociales o prepagos?</span><i class="faq-icon">+</i></div>
-        <div class="faq-a">Nuestros honorarios profesionales se fijan conforme a la normativa del Colegio de Abogados de Córdoba.</div>
+        <div class="faq-q"><span class="faq-q-text">¿Ofrecen diferentes formas de pago?</span><i class="faq-icon">+</i></div>
+        <div class="faq-a">Sí. Ofrecemos diversas alternativas de pago para adaptarnos a las necesidades de cada cliente y facilitar la contratación de nuestros servicios.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q"><span class="faq-q-text">¿Atienden casos fuera de Córdoba?</span><i class="faq-icon">+</i></div>
@@ -858,11 +969,11 @@
 </section>
 
 <!-- CONTACTO -->
-<section class="grain" id="contacto">
+<section class="contacto-sec" id="contacto">
   <div class="container">
     <div class="sec-head reveal">
       <span class="eyebrow">CONTACTO</span>
-      <h2>Contanos tu caso y te orientamos.</h2>
+      <h2>Contanos tu caso y te asesoramos</h2>
     </div>
     <div class="contact-inner">
       <form action="#" class="reveal-left">
@@ -923,19 +1034,19 @@
         <p class="f-tagline">Estudio Jurídico Integral<br>Av. General Paz 120 · Córdoba</p>
         <div class="f-social">
           <a href="https://instagram.com/iustita_estudiojuridico" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.facebook.com/share/14ejeShwyCV/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://wa.me/5493516577116" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       <div class="f-col">
         <h4>Servicios</h4>
         <ul>
-          <li><a href="#servicios">Derecho Laboral</a></li>
+          <li><a href="#servicios">Derecho Inmobiliario</a></li>
           <li><a href="#servicios">Derecho Penal</a></li>
+          <li><a href="#servicios">Sucesiones</a></li>
           <li><a href="#servicios">Divorcios</a></li>
-          <li><a href="#inmobiliaria">Alquileres y Ventas</a></li>
-          <li><a href="#inmobiliaria">Administración</a></li>
-          <li><a href="#inmobiliaria">Bienes Raíces</a></li>
+          <li><a href="#servicios">Derechos Reales</a></li>
+          <li><a href="#inmobiliaria">Gestión Inmobiliaria</a></li>
         </ul>
       </div>
       <div class="f-col">
@@ -993,8 +1104,8 @@
   const ham     = document.getElementById('ham');
   const mnav    = document.getElementById('mnav');
   const overlay = document.getElementById('mnav-overlay');
-  const openMenu  = () => { mnav.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow = 'hidden'; };
-  const closeMenu = () => { mnav.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow = ''; };
+  const openMenu  = () => { mnav.classList.add('open'); overlay.classList.add('open'); ham.classList.add('active'); document.body.style.overflow = 'hidden'; };
+  const closeMenu = () => { mnav.classList.remove('open'); overlay.classList.remove('open'); ham.classList.remove('active'); document.body.style.overflow = ''; };
   ham.addEventListener('click', () => mnav.classList.contains('open') ? closeMenu() : openMenu());
   overlay.addEventListener('click', closeMenu);
   document.querySelectorAll('.mnav-link').forEach(a => a.addEventListener('click', closeMenu));
