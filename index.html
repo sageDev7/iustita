@@ -261,7 +261,9 @@
       transition:background .3s, border-color .3s, transform .3s;
       transition-delay:calc(var(--i,0) * 75ms);
     }
-    .card:hover { background:rgba(255,255,255,0.06); border-color:rgba(158,118,67,.45); transform:translateY(-5px); }
+    @media (hover:hover) and (pointer:fine) {
+      .card:hover { background:rgba(255,255,255,0.06); border-color:rgba(158,118,67,.45); transform:translateY(-5px); }
+    }
     .card-icon { font-size:28px; color:var(--gold); display:block; margin-bottom:1.1rem; }
     .card-hd h3 { font-size:15px; margin-bottom:.5rem; line-height:1.35; }
     .card-body p { color:var(--text-2); font-size:14px; line-height:1.65; }
